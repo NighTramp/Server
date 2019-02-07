@@ -7,8 +7,6 @@
 
 HINSTANCE hInstance; HINSTANCE hPrevInst;
 LPSTR lpszArgs; int nWinMode;
-
-
 //собственная процедура для обработки
 BOOL CALLBACK DlgProc(HWND, UINT, WPARAM, LPARAM);
 
@@ -65,11 +63,25 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT msg, WPARAM wParam,
 				 //return TRUE;//не будет вызыватся функция протисовки окна
 }
 
+void ForWin()
+{
+	int a = WinMain(hInstance, hPrevInst, lpszArgs, nWinMode);
+}
+/////////////////////////////
+
+
+
+
+
+/////////////////////////////
 int main()
 {
 	setlocale(LC_ALL, "Russian_Russia.1251");//изменения кодировки для вывода русского языка 
-
-	int a = WinMain(hInstance, hPrevInst, lpszArgs, nWinMode);
+	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)ForWin, NULL, NULL, NULL);
+	//int a = WinMain(hInstance, hPrevInst, lpszArgs, nWinMode);
+	
+	
+	
 	system("pause");
     return 0;
 }
