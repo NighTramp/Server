@@ -14,6 +14,8 @@
 #include <winsock2.h>
 #include <iostream>
 #include <string>
+#include "SocketBase.h"
+#include <fstream>
 
 #pragma warning(disable: 4996)
 
