@@ -16,6 +16,7 @@
 #include <string>
 #include "SocketBase.h"
 #include <fstream>
+#include "Connection.h"
 
 #pragma warning(disable: 4996)
 

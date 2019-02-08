@@ -6,12 +6,12 @@ SocketBase::SocketBase()
 	{
 		std::cout << "Объект класса SocketBase не инициализирован";
 	}
-	Connections = new SOCKET[amount];
+	connections = new Connection[amount];
 }
 
 SocketBase::~SocketBase()
 {
-	delete[] Connections;
+	delete[] connections;
 }
 
 void SocketBase::NewConnection()
@@ -32,17 +32,13 @@ bool SocketBase::InitServer()
 		while (!file.eof())
 		{
 			file >> tmp;	//Читаем название переменной из конфига
-			if (tmp == "server_ip:")
-			{
-				file >> ip;
-			}
-			else if (tmp == "server_port:")
-			{
-				file >> port;
-			}
-			else if (tmp == "socket_amount:")
+			if (tmp == "socket_amount:")
 			{
 				file >> amount;
+			}
+			else
+			{
+				file >> tmp;
 			}
 		}
 	}

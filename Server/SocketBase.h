@@ -4,9 +4,7 @@ class SocketBase
 private:
 	int amount;
 	int counter;
-	std::string ip;
-	std::string port;
-	SOCKET* Connections;
+	Connection* connections;
 public:
 	void NewConnection();
 	bool InitServer();
